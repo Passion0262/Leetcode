@@ -8,23 +8,18 @@ package leetcode;
 public class Q509_fib {
     int[] memo = null;
     public int fib(int N) {
-        if (N==0){
+        if (N==0)
             return 0;
-        } else if (N==1 || N==2){
-            return 1;
-        }
-
-        if (memo==null) {
-            memo = new int[N + 1];
+        if (memo == null){
+            memo = new int[N+1];        //这是是N+1，不是N
             memo[0] = 0;
             memo[1] = 1;
             memo[2] = 1;
         }
-
-        if (memo[N]!=0){
+        if (memo[N]!=0) {               //备忘录中有的话直接取，否则递归计算。
             return memo[N];
         }else {
-            return memo[N] =  fib(N-1)+fib(N-2);
+            return memo[N] = fib(N-1)+fib(N-2);
         }
     }
 
